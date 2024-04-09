@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         // if user is authenticated, make a connection with backend
-        const socket = io("http://localhost:5000", {
+        const socket = io("/", {
             query: {
                 userId: user?._id,
             },

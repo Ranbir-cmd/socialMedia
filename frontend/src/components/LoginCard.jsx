@@ -61,10 +61,17 @@ export default function LoginCard() {
             align={'center'}
             justify={'center'}
         // bg={useColorModeValue('gray.50', 'gray.800')}
+            
         >
-            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={0}>
                 <Stack align={'center'}>
-                    <Heading fontSize={'4xl'} textAlign={'center'}>
+                    <Heading 
+                        fontSize={{
+                            base: "24px",
+                            sm: "32px",
+                            md: "4xl",
+                        }}
+                     textAlign={'center'}>
                         Login
                     </Heading>
                 </Stack>
@@ -113,12 +120,23 @@ export default function LoginCard() {
                                 }}
                                 onClick={handleLogin}
                                 isLoading={loading}
+                                fontSize={{
+                                    base: "14px",
+                                    sm: "16px",
+                                    md: "18px",
+                                }}
                             >
                                 Login
                             </Button>
                         </Stack>
                         <Stack pt={6}>
-                            <Text align={'center'}>
+                            <Text 
+                            align={'center'}
+                                fontSize={{
+                                    base: "12px",
+                                    md: "14px",
+                                }}
+                            >
                                 Don&apos;t have an account? <Link color={'blue.400'} onClick={() => setAuthScreen("signup")}>Signup</Link>
                             </Text>
                         </Stack>

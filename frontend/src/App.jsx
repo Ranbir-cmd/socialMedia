@@ -19,27 +19,46 @@ function App() {
 
   return (
     <Box position={"relative"} w='full'>
-      <Container 
-      // maxW={"850px"}
-      paddingLeft={"20"}
-      paddingRight={"20"}
-      maxW={pathname === "/" ? { base: "850px", md: "1024px" } : "850px"}
+      <Container
+        // maxW={"850px"}
+        paddingLeft={"20"}
+        paddingRight={"20"}
+        maxW={pathname === "/" ? { base: "850px", md: "1024px" } : "850px"}
 
       >
         <Header />
-      <Routes>
-        <Route path='/' element={ user ? <HomePage /> : <Navigate to={"/auth"} />} />
-        <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to={"/"} />} />
-        <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to={"/auth"} />} />
-        <Route path='/:username' element= {<UserPage />}>
-        </Route>
-        <Route path='/:username/post/:pid' element= {<PostPage />}>
-        </Route>
+        <Routes>
+          <Route path='/' element={
+            user ?
+              <>
+                <HomePage />
+                <CreatePost />
+              </>
+              :
+              <Navigate to={"/auth"} />
+          } />
+          <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to={"/"} />} />
+          <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to={"/auth"} />} />
+          <Route
+            path='/:username'
+            element={
+              user ? (
+                <>
+                  <UserPage />
+                  <CreatePost />
+                </>
+              ) : (
+                <UserPage />
+              )
+            }
+          />
+          <Route path='/:username/post/:pid' element={<PostPage />}>
+          </Route>
           <Route path='/chat' element={user ? <ChatPage /> : <Navigate to={"/auth"} />}>
           </Route>
-      </Routes>
-      {user && <CreatePost />}
-    </Container>
+        </Routes>
+        {/* {user && <CreatePost />} */}
+      </Container>
     </Box>
   )
 }

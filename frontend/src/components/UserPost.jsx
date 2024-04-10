@@ -4,7 +4,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { useState } from "react";
 import Actions from "./Actions";
 
-const UserPost = () => {
+const UserPost = ({ postImg, postTitle, likes, replies }) => {
     const [liked, setLiked] = useState(false);
 
   return (
@@ -65,9 +65,8 @@ const UserPost = () => {
                       </Flex>
                   </Flex>
 
-                  <Text fontSize={"sm"}>
-                    {/* {postTitle} */}
-                    Post one
+                  <Text fontSize={"sm"} color={"gray.light"}>
+                    {postTitle}
                     </Text>
                   {postImg && (
                       <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
@@ -81,13 +80,12 @@ const UserPost = () => {
 
                   <Flex gap={2} alignItems={"center"}>
                       <Text color={"gray.light"} fontSize='sm'>
-                         {/* {replies}  */}
-                        10  replies
+                          {replies} replies
+
                       </Text>
                       <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
                       <Text color={"gray.light"} fontSize='sm'>
-                          {/* {likes}  */}
-                         5 likes
+                          {likes} likes
                       </Text>
                   </Flex>
               </Flex>

@@ -60,9 +60,10 @@ const Post = ({ post, postedBy }) => {
 
     if (!user) return null;
     return (
+        <>
         <Link to={`/${user.username}/post/${post._id}`}>
-            <Flex gap={3} mb={4} py={5}>
-                <Flex flexDirection={"column"} alignItems={"center"}>
+            <Flex gap={3} mb={4} px={4} py={5} border={"1px solid #222"} borderRadius={"8px"} background={"#242526"}>
+                {/* <Flex flexDirection={"column"} alignItems={"center"}>
                     <Avatar
                         size='md'
                         name={user.name}
@@ -72,47 +73,9 @@ const Post = ({ post, postedBy }) => {
                             navigate(`/${user.username}`);
                         }}
                     />
-                    <Box w='1px' h={"full"} bg='gray.light' my={2}></Box>
-                    <Box position={"relative"} w={"full"}>
-                        {/* {post.replies.length === 0 && <Text textAlign={"center"}>🥱</Text>} */}
-                        {/* {post.replies[0] && (
-                            <Avatar
-                                size='xs'
-                                name='John doe'
-                                src={post.replies[0].userProfilePic}
-                                position={"absolute"}
-                                top={"0px"}
-                                left='15px'
-                                padding={"2px"}
-                            />
-                        )}
+                </Flex> */}
 
-                        {post.replies[1] && (
-                            <Avatar
-                                size='xs'
-                                name='John doe'
-                                src={post.replies[1].userProfilePic}
-                                position={"absolute"}
-                                bottom={"0px"}
-                                right='-5px'
-                                padding={"2px"}
-                            />
-                        )}
-
-                        {post.replies[2] && (
-                            <Avatar
-                                size='xs'
-                                name='John doe'
-                                src={post.replies[2].userProfilePic}
-                                position={"absolute"}
-                                bottom={"0px"}
-                                left='4px'
-                                padding={"2px"}
-                            />
-                        )} */}
-                    </Box>
-                </Flex>
-                <Flex flex={1} flexDirection={"column"} gap={2}>
+                {/* <Flex flex={1} flexDirection={"column"} gap={2}>
                     <Flex justifyContent={"space-between"} w={"full"}>
                         <Flex w={"full"} alignItems={"center"}>
                             <Text
@@ -125,7 +88,7 @@ const Post = ({ post, postedBy }) => {
                             >
                                 {user?.username}
                             </Text>
-                            {/* <Image src='/verified.png' w={4} h={4} ml={1} /> */}
+                            
                         </Flex>
                         <Flex gap={4} alignItems={"center"}>
                             <Text fontSize={"xs"} width={36} textAlign={"right"} color={"gray.light"}>
@@ -146,9 +109,76 @@ const Post = ({ post, postedBy }) => {
                     <Flex gap={3} my={1}>
                         <Actions post={post} />
                     </Flex>
+                </Flex> */}
+
+                {/* new design  */}
+                <Flex w={"full"} flexDirection={"column"} gap={2}>
+                    {/* user section  */}
+                    <Flex justifyContent={"space-between"}>
+                        <Flex gap={2} alignItems={"center"}>
+                            <Avatar
+                                size='md'
+                                name={user.name}
+                                src={user?.profilePic}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate(`/${user.username}`);
+                                }}
+                            />
+                            <Text
+                                fontSize={"sm"}
+                                fontWeight={"bold"}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate(`/${user.username}`);
+                                }}
+                                color={"gray.white"}
+                            >
+                                {user?.username}
+                            </Text>
+                        </Flex>
+
+                        <Flex>
+                            <Flex w={"full"} alignItems={"center"}>
+
+                                {/* <Image src='/verified.png' w={4} h={4} ml={1} /> */}
+                            </Flex>
+                            <Flex gap={4} alignItems={"center"}>
+                                <Text fontSize={"xs"} width={36} textAlign={"right"} color={"gray.light"}>
+                                    {formatDistanceToNow(new Date(post.createdAt))} ago
+                                </Text>
+
+                                {currentUser?._id === user._id && <DeleteIcon 
+                                size={20} 
+                                onClick={handleDeletePost}
+                                color={"gray.white"}
+                                />}
+                            </Flex>
+                        </Flex>
+                    </Flex>
+
+                    {/* post section  */}
+                    <Flex flex={1} flexDirection={"column"} gap={2}>
+                        <Text
+                            fontSize={"sm"}
+                            color={"gray.white"}
+                        >
+                            {post.text}
+                        </Text>
+                        {post.img && (
+                            <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
+                                <Image src={post.img} objectFit={"contain"} />
+                            </Box>
+                        )}
+
+                        <Flex gap={3} my={1}>
+                            <Actions post={post} />
+                        </Flex>
+                    </Flex>
                 </Flex>
             </Flex>
         </Link>
+        </>
     );
 };
 

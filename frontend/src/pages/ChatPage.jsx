@@ -63,6 +63,10 @@ const ChatPage = () => {
 
     const handleConversation = async (e) => {
         e.preventDefault();
+        if (!searchText){
+            showToast("Error", "Please type a username", "error");
+            return;
+        }
         setSearchingUser(true);
         try {
             const res = await fetch(`/api/users/profile/${searchText}`);
@@ -78,7 +82,7 @@ const ChatPage = () => {
 
             // if searched user has already conversations, then open chat directly 
             const conversationAlreadyExists = conversations.find(
-                (conversation) => conversation.participants[0]._id === searchedUser._id
+                (conversation) => conversation.participants[0]?._id === searchedUser?._id
             );
             if (conversationAlreadyExists) {
                 setSelectedConverstaion({
@@ -107,7 +111,7 @@ const ChatPage = () => {
                 ],
             };
             setConversations((prevConvs) => [mockConversation, ...prevConvs]);
-
+            setSearchText("");
         } catch (error) {
             showToast("Error", error.message, "error");
 
@@ -132,11 +136,16 @@ const ChatPage = () => {
                 mx={"auto"}
             >
                 <Flex
-                    flex={30}
+                    flex={
+                        {
+                            sm: 50,
+                            md: 30
+                        }
+                    }
                     gap={2}
                     flexDirection={"column"}
-                    maxW={{
-                        sm: "250px",
+                    w={{
+                        sm: "450px",
                         md: "full",
                     }}
                     mx={"auto"}
@@ -185,7 +194,10 @@ const ChatPage = () => {
 
                 {!selectedConversation._id && (
                     <Flex
-                        flex={70}
+                        flex={{
+                            sm: 50,
+                            md: 70
+                        }}
                         borderRadius={"md"}
                         p={2}
                         flexDir={"column"}

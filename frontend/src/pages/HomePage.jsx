@@ -58,10 +58,10 @@ const HomePage = () => {
             </Box>
             <Box
                 flex={30}
-                // display={{
-                //     base: "none",
-                //     md: "block",
-                // }}
+                display={{
+                    base: posts.length === 0 ? "block" : "none",
+                    md: "block",
+                }}
             >
                 <SuggestedUsers />
             </Box>

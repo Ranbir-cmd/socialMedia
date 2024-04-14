@@ -71,8 +71,9 @@ const CreatePost = () => {
             <Button
                 position={"fixed"}
                 bottom={10}
-                right={10}
+                right={5}
                 bg={useColorModeValue("gray.300", "gray.dark")}
+                p={4}
                 border={"1px solid #fff"}
                 borderRadius={"full"}
                 onClick={onOpen}

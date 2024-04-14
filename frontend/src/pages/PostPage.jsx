@@ -69,54 +69,56 @@ const PostPage = () => {
     if (!currentPost) return null;
     // console.log("currentPost", currentPost);
 
-  return (
-      <>
-          <Flex>
-              <Flex w={"full"} alignItems={"center"} gap={3}>
-                  <Avatar src={user.profilePic} size={"md"} name='Mark Zuckerberg' />
-                  <Flex>
-                      <Text fontSize={"sm"} fontWeight={"bold"}>
-                          {user.username}
-                      </Text>
-                  </Flex>
-              </Flex>
-              <Flex gap={4} alignItems={"center"}>
-                  <Text fontSize={"xs"} width={36} textAlign={"right"} color={"gray.light"}>
-                      {formatDistanceToNow(new Date(currentPost.createdAt))} ago
-                  </Text>
+    return (
+        <>
+            <Flex>
+                <Flex w={"full"} alignItems={"center"} gap={3}>
+                    <Avatar src={user.profilePic} size={"md"} name='Mark Zuckerberg' />
+                    <Flex>
+                        <Text fontSize={"sm"} fontWeight={"bold"}>
+                            {user.username}
+                        </Text>
+                    </Flex>
+                </Flex>
+                <Flex gap={4} alignItems={"center"}>
+                    <Text fontSize={"xs"} width={36} textAlign={"right"} color={"gray.light"}>
+                        {formatDistanceToNow(new Date(currentPost.createdAt))} ago
+                    </Text>
 
-                  {currentUser?._id === user._id && (
-                      <DeleteIcon
-                       size={20} 
-                       cursor={"pointer"}
-                        onClick={handleDeletePost}
-                         />
-                  )}
-              </Flex>
-          </Flex>
+                    {currentUser?._id === user._id && (
+                        <DeleteIcon
+                            size={20}
+                            cursor={"pointer"}
+                            onClick={handleDeletePost}
+                        />
+                    )}
+                </Flex>
+            </Flex>
 
-          <Text my={3}>{currentPost.text}</Text>
+            <Text my={3}>{currentPost.text}</Text>
 
-          {currentPost.img && (
-              <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
-                  <Image src={currentPost.img} w={"full"} />
-              </Box>
-          )}
+            {currentPost.img && (
+                <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
+                    <Image src={currentPost.img} w={"full"} />
+                </Box>
+            )}
 
-          <Flex gap={3} my={3}>
-              <Actions post={currentPost} />
-          </Flex>
-
-          <Divider my={4} />
-          {currentPost.replies.map((reply) => (
-              <Comment
-                  key={reply._id}
-                  reply={reply}
-                  lastReply={reply._id === currentPost.replies[currentPost.replies.length - 1]._id}
-              />
-           ))}
-      </>
-  )
+            <Flex gap={3} my={3}>
+                <Actions post={currentPost} />
+            </Flex>
+            {currentPost?.replies.length > 0 &&
+                <Divider my={4} />}
+            {currentPost?.replies.length > 0 &&
+                <Text fontWeight={"medium"}>Comments</Text>}
+            {currentPost.replies.map((reply) => (
+                <Comment
+                    key={reply._id}
+                    reply={reply}
+                    lastReply={reply._id === currentPost.replies[currentPost.replies.length - 1]._id}
+                />
+            ))}
+        </>
+    )
 }
 
 export default PostPage

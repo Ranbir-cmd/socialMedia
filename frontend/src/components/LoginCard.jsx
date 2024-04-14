@@ -72,7 +72,7 @@ export default function LoginCard() {
                             md: "4xl",
                         }}
                      textAlign={'center'}>
-                        Login
+                        Login 
                     </Heading>
                 </Stack>
                 <Box

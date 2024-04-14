@@ -23,7 +23,7 @@ function App() {
         // maxW={"850px"}
         paddingLeft={"20"}
         paddingRight={"20"}
-        maxW={pathname === "/" ? { base: "850px", md: "1024px" } : "850px"}
+        maxW={pathname === "/" ? { base: "850px", md: "1024px" } : "900px"}
 
       >
         <Header />

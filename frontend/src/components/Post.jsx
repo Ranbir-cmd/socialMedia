@@ -165,8 +165,8 @@ const Post = ({ post, postedBy }) => {
                         >
                             {post.text}
                         </Text>
-                        {post.img && (
-                            <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
+                        {post?.img && (
+                            <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"} textAlign={"-webkit-center"}>
                                 <Image src={post.img} objectFit={"contain"} />
                             </Box>
                         )}

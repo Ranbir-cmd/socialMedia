@@ -77,7 +77,7 @@ export default function LoginCard() {
                 </Stack>
                 <Box
                     rounded={'lg'}
-                    bg={useColorModeValue('white', 'gray.dark')}
+                    bg={"gray.dark"}
                     boxShadow={'lg'}
                     p={8}
                     w={{ base: "full", sm: "400px" }}
@@ -113,10 +113,10 @@ export default function LoginCard() {
                             <Button
                                 loadingText="Logging in..."
                                 size="lg"
-                                bg={useColorModeValue("gray.600", "gray.700")}
+                                bg={"gray.dark"}
                                 color={'white'}
                                 _hover={{
-                                    bg: useColorModeValue("gray.700", "gray.600"),
+                                    bg: "gray.light",
                                 }}
                                 onClick={handleLogin}
                                 isLoading={loading}

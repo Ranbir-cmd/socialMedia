@@ -72,7 +72,7 @@ const CreatePost = () => {
                 position={"fixed"}
                 bottom={10}
                 right={5}
-                bg={useColorModeValue("gray.300", "gray.dark")}
+                bg={"gray.dark"}
                 p={4}
                 border={"1px solid #fff"}
                 borderRadius={"full"}

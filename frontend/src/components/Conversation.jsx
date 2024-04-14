@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, Box, Flex, Stack, Text, WrapItem, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import { Avatar, AvatarBadge, Box, Flex, Stack, Text, WrapItem, useColorMode } from "@chakra-ui/react"
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { BsCheck2All, BsFillImageFill } from "react-icons/bs";
@@ -20,7 +20,7 @@ const Conversation = ({ conversation, isOnline }) => {
             p={"1"}
             _hover={{
                 cursor: "pointer",
-                bg: useColorModeValue("gray.600", "gray.dark"),
+                bg: "gray.dark",
                 color: "white",
             }}
             borderRadius={"md"}
@@ -32,7 +32,12 @@ const Conversation = ({ conversation, isOnline }) => {
                 mock: conversation.mock
             })}
             bg={
-                selectedConversation?._id === conversation._id ? (colorMode === "light" ? "gray.600" : "gray.dark") : ""
+                selectedConversation?._id === conversation._id ? "gray.dark" : ""
+                
+                    // colorMode === "light" ? "gray.600" : "gray.dark"
+                        
+                
+                   
             }
         >
             <WrapItem>

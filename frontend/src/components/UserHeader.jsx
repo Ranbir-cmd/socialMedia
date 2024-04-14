@@ -63,7 +63,7 @@ const UserHeader = ({ user }) => {
                             <Text fontSize={"sm"}>{user.username}</Text>
                         </Flex>
                         <Text
-                            color={useColorModeValue("gray.600", "gray.400")}
+                            color={"gray.400"}
                             fontSize={"14px"}
                             fontWeight={"medium"}
                         >{user.bio}</Text>
@@ -73,7 +73,7 @@ const UserHeader = ({ user }) => {
                     <Text
                         w={"5rem"}
                         textAlign={"end"}
-                        color={useColorModeValue("gray.600", "gray.400")}
+                        color={"gray.400"}
                         fontWeight={"medium"}
                     >
                         {user.followers.length} followers

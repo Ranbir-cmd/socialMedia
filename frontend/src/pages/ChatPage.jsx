@@ -150,7 +150,7 @@ const ChatPage = () => {
                     }}
                     mx={"auto"}
                 >
-                    <Text fontWeight={700} color={useColorModeValue("gray.600", "gray.400")}>Your conversations</Text>
+                    <Text fontWeight={700} color={"gray.400"}>Your conversations</Text>
                     <form onSubmit={handleConversation}>
                         <Flex alignItems={"center"} gap={2}>
                             <Input

@@ -70,7 +70,7 @@ export default function SignupCard() {
                 </Stack>
                 <Box
                     rounded={'lg'}
-                    bg={useColorModeValue('white', 'gray.dark')}
+                    bg={"gray.dark"}
                     boxShadow={'lg'}
                     p={8}>
                     <Stack spacing={4}>
@@ -125,11 +125,11 @@ export default function SignupCard() {
                             <Button
                                 loadingText="Submitting"
                                 size="lg"
-                                bg={useColorModeValue("gray.600", "gray.700")}
+                                bg={"gray.light"}
                                 color={'white'}
-                                _hover={{
-                                    bg: useColorModeValue("gray.700", "gray.600"),
-                                }}
+                                // _hover={{
+                                //     bg: useColorModeValue("gray.700", "gray.600"),
+                                // }}
                                 onClick={handleSubmit}
                             >
                                 Sign up

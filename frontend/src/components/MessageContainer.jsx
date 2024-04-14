@@ -111,7 +111,7 @@ const MessageContainer = () => {
     return (
         <Flex
             flex='70'
-            bg={useColorModeValue("gray.dark", "gray.dark")}
+            bg={"gray.dark"}
             borderRadius={"md"}
             p={2}
             flexDirection={"column"}

@@ -138,7 +138,7 @@ const Post = ({ post, postedBy }) => {
                             </Text>
                         </Flex>
 
-                            <Flex w={"full"} alignItems={"center"} gap={3}>
+                        <Flex>
                             <Flex w={"full"} alignItems={"center"}>
 
                                 {/* <Image src='/verified.png' w={4} h={4} ml={1} /> */}

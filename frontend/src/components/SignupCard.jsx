@@ -5,13 +5,13 @@ import {
     FormLabel,
     Input,
     InputGroup,
-    HStack,
+    // HStack,
     InputRightElement,
     Stack,
     Button,
     Heading,
     Text,
-    useColorModeValue,
+    // useColorModeValue,
     Link,
 } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -62,9 +62,16 @@ export default function SignupCard() {
             justify={'center'}
         // bg={useColorModeValue('gray.50', 'gray.800')}
         >
-            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12}>
                 <Stack align={'center'}>
-                    <Heading fontSize={'4xl'} textAlign={'center'}>
+                    <Heading 
+                     textAlign={'center'}
+                        fontSize={{
+                            base: "24px",
+                            sm: "32px",
+                            md: "4xl",
+                        }}
+                     >
                         Sign up
                     </Heading>
                 </Stack>
@@ -72,9 +79,11 @@ export default function SignupCard() {
                     rounded={'lg'}
                     bg={"gray.dark"}
                     boxShadow={'lg'}
-                    p={8}>
+                    p={8}
+                    w={{ base: "full", sm: "400px" }}
+                    >
                     <Stack spacing={4}>
-                        <HStack>
+                        {/* <HStack> */}
                             <Box>
                                 <FormControl isRequired>
                                     <FormLabel>Full Name</FormLabel>
@@ -95,7 +104,7 @@ export default function SignupCard() {
                                     />
                                 </FormControl>
                             </Box>
-                        </HStack>
+                        {/* </HStack> */}
                         <FormControl id="email" isRequired>
                             <FormLabel>Email address</FormLabel>
                             <Input

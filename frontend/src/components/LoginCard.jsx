@@ -10,7 +10,7 @@ import {
     Button,
     Heading,
     Text,
-    useColorModeValue,
+    // useColorModeValue,
     Link,
 } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -113,7 +113,7 @@ export default function LoginCard() {
                             <Button
                                 loadingText="Logging in..."
                                 size="lg"
-                                bg={"gray.dark"}
+                                bg={"gray.light"}
                                 color={'white'}
                                 _hover={{
                                     bg: "gray.light",

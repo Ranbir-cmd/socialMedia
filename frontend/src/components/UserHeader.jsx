@@ -1,8 +1,6 @@
 
-import { Avatar, Box, Flex, Menu, MenuButton, MenuItem, MenuList, Portal, Text, VStack, Link, useToast, Button, useColorModeValue } from "@chakra-ui/react"
+import { Avatar, Box, Flex, Text, VStack, Link, Button } from "@chakra-ui/react"
 import { Link as routerLink } from "react-router-dom"
-import { BsInstagram } from "react-icons/bs";
-import { CgMoreO } from "react-icons/cg";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useFollowUnfollow from "../hooks/useFollowUnfollow";

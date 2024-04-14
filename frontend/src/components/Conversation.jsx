@@ -1,4 +1,4 @@
-import { Avatar, AvatarBadge, Box, Flex, Stack, Text, WrapItem, useColorMode } from "@chakra-ui/react"
+import { Avatar, AvatarBadge, Box, Flex, Stack, Text, WrapItem } from "@chakra-ui/react"
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { BsCheck2All, BsFillImageFill } from "react-icons/bs";
@@ -11,7 +11,7 @@ const Conversation = ({ conversation, isOnline }) => {
     const currentUser = useRecoilValue(userAtom);
     const [selectedConversation, setSelectedConverstaion] = useRecoilState(selectedConversationAtom)
     
-    const colorMode = useColorMode()
+    // const colorMode = useColorMode()
 
     return (
         <Flex

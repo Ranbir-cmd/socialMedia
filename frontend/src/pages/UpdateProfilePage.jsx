@@ -6,7 +6,6 @@ import {
     Heading,
     Input,
     Stack,
-    useColorModeValue,
     Avatar,
     Center,
 } from "@chakra-ui/react";

@@ -1,4 +1,4 @@
-import { Button, Flex, Image, useColorMode } from "@chakra-ui/react"
+import { Button, Flex } from "@chakra-ui/react"
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import { FiLogOut } from "react-icons/fi";
 import { BsFillChatQuoteFill } from "react-icons/bs";
 
 const Header = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   const user = useRecoilValue(userAtom);
   const logout = useLogout();
 

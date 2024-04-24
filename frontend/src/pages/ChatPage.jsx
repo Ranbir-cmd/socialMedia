@@ -63,7 +63,7 @@ const ChatPage = () => {
 
     const handleConversation = async (e) => {
         e.preventDefault();
-        if (!searchText){
+        if (!searchText) {
             showToast("Error", "Please type a username", "error");
             return;
         }
@@ -76,7 +76,7 @@ const ChatPage = () => {
                 return;
             }
 
-            if(searchedUser._id === currentUser._id){
+            if (searchedUser._id === currentUser._id) {
                 showToast("Error", "You cant message yourself", "error");
             }
 
@@ -115,7 +115,7 @@ const ChatPage = () => {
         } catch (error) {
             showToast("Error", error.message, "error");
 
-        } finally{
+        } finally {
             setSearchingUser(false);
         }
     }
@@ -179,6 +179,10 @@ const ChatPage = () => {
                                 </Flex>
                             </Flex>
                         ))}
+
+                    {!loadingConversations && conversations?.length === 0 && 
+                        <Text fontWeight={700} color={"gray.400"}>You do not have any conversation yet. Search user to start a conversation.</Text>
+                    }
 
                     {!loadingConversations && (
                         conversations?.map(conversation => (

@@ -181,7 +181,7 @@ const ChatPage = () => {
                         ))}
 
                     {!loadingConversations && conversations?.length === 0 && 
-                        <Text fontWeight={700} color={"gray.400"}>You do not have any conversation yet. Search user to start a conversation.</Text>
+                        <Text fontWeight={500} color={"gray.400"}>You do not have any conversation yet. Search user to start a conversation.</Text>
                     }
 
                     {!loadingConversations && (

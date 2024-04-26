@@ -8,6 +8,9 @@ import {app, server} from "./socket/socket.js";
 
 // const app = express();
 dotenv.config();
+
+job.start()
+
 const port = process.env.PORT || 8000;
 
 const __dirname = path.resolve()
@@ -21,6 +24,7 @@ cloudinary.config({
 import userRoutes from "./routes/user.routes.js"
 import postRoutes from "./routes/post.routes.js"
 import messageRoutes from "./routes/message.routes.js"
+import job from './cron/cron.js';
 
 app.use(express.json({ limit: "50mb"}));    //to parse json data in req.body 
 app.use(express.urlencoded({
@@ -41,6 +45,6 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 server.listen(port, () => {
-    connectDB()
+    connectDB();
     console.log(`Server started on port ${port}`);
 });

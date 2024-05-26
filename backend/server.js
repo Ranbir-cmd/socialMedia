@@ -9,7 +9,7 @@ import {app, server} from "./socket/socket.js";
 // const app = express();
 dotenv.config();
 
-job.start()
+// job.start()
 
 const port = process.env.PORT || 8000;
 

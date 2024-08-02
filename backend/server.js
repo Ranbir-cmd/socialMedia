@@ -5,6 +5,7 @@ import connectDB from './db/connectDB.js';
 import cookieParser from 'cookie-parser';
 import { v2 as cloudinary } from 'cloudinary';
 import {app, server} from "./socket/socket.js";
+import job from './cron/cron.js';
 
 // const app = express();
 dotenv.config();
@@ -24,7 +25,6 @@ cloudinary.config({
 import userRoutes from "./routes/user.routes.js"
 import postRoutes from "./routes/post.routes.js"
 import messageRoutes from "./routes/message.routes.js"
-import job from './cron/cron.js';
 
 app.use(express.json({ limit: "50mb"}));    //to parse json data in req.body 
 app.use(express.urlencoded({
